@@ -16,6 +16,7 @@
     "settings": "设置",
     "basicSettings": "基本设置",
     "exampleComponents": "示例组件",
+    "menuTitle": "设备管理",
     "forgot-password": "忘记密码"
   },
   "mock": {
