@@ -1,5 +1,11 @@
 <script setup lang="ts">
-import { useRouteCacheStore } from '@/stores'
+import { onMounted } from 'vue'
+import { useRouteCacheStore, useUserStore } from '@/stores'
+import Suplink from '@suplink/jssdk'
+import { setToken } from '@/utils/auth'
+
+const userStore = useUserStore()
+// const userInfo = computed(() => userStore.userInfo)
 
 useHead({
   title: '设备管理',
@@ -30,6 +36,24 @@ const keepAliveRouteNames = computed(() => {
 
 const mode = computed(() => {
   return isDark.value ? 'dark' : 'light'
+})
+onMounted(() => {
+  // suplink-jssdk 使用示例 更改头部导航栏标题
+  Suplink.setNavigationBar({ title: '设备管理' })
+  // suplink-jssdk 使用示例 获取suplink登陆用户信息
+  Suplink.getUserInfo().then((res) => {
+    userStore.setInfo(res.data)
+    setToken(res.data.suposToken)
+  })
+  // supLink调试模式下刷新应用（建议保留）
+  // window.suplinkDebug.refresh = () => {
+  //   // state.appAlive = false
+  //   // appAlive.value = false
+  //   nextTick(() => {
+  //     // state.appAlive = true
+  //     // appAlive.value = true
+  //   })
+  // }
 })
 </script>
 

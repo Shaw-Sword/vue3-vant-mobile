@@ -21,8 +21,8 @@
     "commitlint": "commitlint --edit",
     "prepare": "simple-git-hooks"
   },
-
   "dependencies": {
+    "@suplink/jssdk": "^1.6.0",
     "@unhead/vue": "2.0.12",
     "@vant/touch-emulator": "^1.4.0",
     "@vant/use": "^1.6.0",
@@ -80,7 +80,6 @@
     "vite-plugin-vue-devtools": "^7.7.7",
     "vue-tsc": "^3.0.2"
   },
-
   "pnpm": {
     "allowedDeprecatedVersions": {
       "glob": "7.2.3",

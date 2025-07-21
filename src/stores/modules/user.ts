@@ -1,40 +1,42 @@
 import { defineStore } from 'pinia'
-import type { LoginData, UserState } from '@/api/user'
-import { clearToken, setToken } from '@/utils/auth'
+// import type { LoginData, UserState } from '@/api/user'
+import { clearToken } from '@/utils/auth'
+import type { Data } from '@suplink/jssdk/lib/types/apis/openApi/getUserInfo'
+import { getUserInfo } from '@suplink/jssdk'
+// import {
+//   getEmailCode,
+//   getUserInfo,
+//   resetPassword,
+//   login as userLogin,
+//   logout as userLogout,
+//   register as userRegister,
+// } from '@/api/user'
 
-import {
-  getEmailCode,
-  getUserInfo,
-  resetPassword,
-  login as userLogin,
-  logout as userLogout,
-  register as userRegister,
-} from '@/api/user'
-
-const InitUserInfo = {
-  uid: 0,
-  nickname: '',
-  avatar: '',
-}
+// const InitUserInfo = {
+//   uid: 0,
+//   nickname: '',
+//   avatar: '',
+// }
 
 export const useUserStore = defineStore('user', () => {
-  const userInfo = ref<UserState>({ ...InitUserInfo })
+  const userInfo = ref<Partial<Data>>({})
+  const appAlive = ref<boolean>(true)
 
   // Set user's information
-  const setInfo = (partial: Partial<UserState>) => {
+  const setInfo = (partial: Partial<Data>) => {
     userInfo.value = { ...partial }
   }
 
-  const login = async (loginForm: LoginData) => {
-    try {
-      const { data } = await userLogin(loginForm)
-      setToken(data.token)
-    }
-    catch (error) {
-      clearToken()
-      throw error
-    }
-  }
+  // const login = async (loginForm: LoginData) => {
+  //   try {
+  //     const { data } = await userLogin(loginForm)
+  //     setToken(data.token)
+  //   }
+  //   catch (error) {
+  //     clearToken()
+  //     throw error
+  //   }
+  // }
 
   const info = async () => {
     try {
@@ -47,48 +49,50 @@ export const useUserStore = defineStore('user', () => {
     }
   }
 
-  const logout = async () => {
-    try {
-      await userLogout()
-    }
-    finally {
-      clearToken()
-      setInfo({ ...InitUserInfo })
-    }
-  }
+  // const logout = async () => {
+  //   try {
+  //     await userLogout()
+  //   }
+  //   finally {
+  //     clearToken()
+  //     setInfo({ ...userInfo.value })
+  //   }
+  // }
 
-  const getCode = async () => {
-    try {
-      const data = await getEmailCode()
-      return data
-    }
-    catch {}
-  }
+  // const getCode = async () => {
+  //   try {
+  //     const data = await getEmailCode()
+  //     return data
+  //   }
+  //   catch {}
+  // }
 
-  const reset = async () => {
-    try {
-      const data = await resetPassword()
-      return data
-    }
-    catch {}
-  }
+  // const reset = async () => {
+  //   try {
+  //     const data = await resetPassword()
+  //     return data
+  //   }
+  //   catch {}
+  // }
 
-  const register = async () => {
-    try {
-      const data = await userRegister()
-      return data
-    }
-    catch {}
-  }
+  // const register = async () => {
+  //   try {
+  //     const data = await userRegister()
+  //     return data
+  //   }
+  //   catch {}
+  // }
 
   return {
     userInfo,
+    setInfo,
     info,
-    login,
-    logout,
-    getCode,
-    reset,
-    register,
+    appAlive,
+    // login,
+    // logout,
+    // getCode,
+    // reset,
+    // register,
   }
 }, {
   persist: true,

@@ -26,6 +26,17 @@ export default ({ mode }: ConfigEnv): UserConfig => {
         },
       },
     },
+    //   server: {
+    //   host: '0.0.0.0',
+    //   proxy: pkg.proxy
+    //     ? {
+    //         '/open-api/': {
+    //           target: pkg.proxy,
+    //           changeOrigin: true,
+    //         },
+    //       }
+    //     : undefined,
+    // },
 
     resolve: {
       alias: {
