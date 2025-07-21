@@ -54,6 +54,11 @@ function onLanguageConfirm(event: { selectedOptions: PickerColumn }) {
       <van-cell :title="item.title" :to="item.route" is-link />
     </template>
   </van-cell-group>
+  <van-cell-group :title="$t('menus.exampleComponents')" :border="false" :inset="true">
+    <template v-for="item in menuItems" :key="item.route">
+      <van-cell :title="item.title" :to="item.route" is-link />
+    </template>
+  </van-cell-group>
 
   <van-popup v-model:show="showLanguagePicker" position="bottom">
     <van-picker

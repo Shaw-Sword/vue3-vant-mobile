@@ -2,11 +2,11 @@
 import { useRouteCacheStore } from '@/stores'
 
 useHead({
-  title: 'Vue3 Vant Mobile',
+  title: '设备管理',
   meta: [
     {
       name: 'description',
-      content: 'An mobile web apps template based on the Vue 3 ecosystem',
+      content: '设备管理的suplink端',
     },
     {
       name: 'theme-color',

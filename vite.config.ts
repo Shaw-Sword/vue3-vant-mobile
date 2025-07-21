@@ -4,6 +4,7 @@ import { loadEnv } from 'vite'
 import type { ConfigEnv, UserConfig } from 'vite'
 import { createVitePlugins } from './build/vite'
 import { exclude, include } from './build/vite/optimize'
+// ✅ ESM方式读取json
 
 export default ({ mode }: ConfigEnv): UserConfig => {
   const root = process.cwd()
@@ -11,6 +12,7 @@ export default ({ mode }: ConfigEnv): UserConfig => {
 
   return {
     base: env.VITE_APP_PUBLIC_PATH,
+    // base: pkg.homepage || '/',
     plugins: createVitePlugins(mode),
 
     server: {

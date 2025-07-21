@@ -5,6 +5,7 @@
   "packageManager": "pnpm@10.13.1",
   "description": "An mobile web apps template based on the Vue 3 ecosystem",
   "license": "MIT",
+  "homepage": "/suplink/mapps/shaw_tail",
   "engines": {
     "node": ">=20.19.0"
   },
@@ -20,6 +21,7 @@
     "commitlint": "commitlint --edit",
     "prepare": "simple-git-hooks"
   },
+
   "dependencies": {
     "@unhead/vue": "2.0.12",
     "@vant/touch-emulator": "^1.4.0",
@@ -78,6 +80,7 @@
     "vite-plugin-vue-devtools": "^7.7.7",
     "vue-tsc": "^3.0.2"
   },
+
   "pnpm": {
     "allowedDeprecatedVersions": {
       "glob": "7.2.3",
@@ -103,5 +106,6 @@
   },
   "lint-staged": {
     "*": "eslint --fix"
-  }
+  },
+  "proxy": "http://192.168.8.252:8042"
 }

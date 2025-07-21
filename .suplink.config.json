@@ -1,0 +1,24 @@
+{
+  "publishes": [
+    {
+      "server": "http://192.168.8.252:8042",
+      "distPath": "dist",
+      "url": "http://192.168.8.252:8042/suplink/mapps/shaw_tail/"
+    },
+    {
+      "server": "http://117.139.244.210:8042",
+      "distPath": "dist",
+      "url": "http://117.139.244.210:8042/suplink/mapps/shaw_tail/"
+    }
+  ],
+  "deploys": [
+    {
+      "server": "http://192.168.8.252:8042",
+      "appName": "shaw_tail",
+      "appUrl": "http://192.168.8.252:8042/suplink/mapps/shaw_tail/",
+      "appId": "c6223fbc-3d50-4e04-a381-2d0b33307060",
+      "uuid": "c6223fbc-3d50-4e04-a381-2d0b33307060"
+    }
+  ],
+  "fileVersion": "1.0.0"
+}
